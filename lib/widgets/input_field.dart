@@ -5,12 +5,16 @@ class InputField extends StatelessWidget {
     super.key,
     required this.hintText,
     required this.keyboardType,
+    required this.onSaved,
+    required this.validator,
     this.isPassword = false,
   });
 
   final String hintText;
   final TextInputType keyboardType;
   final bool isPassword;
+  final String? Function(String?) validator;
+  final void Function(String?) onSaved;
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +32,8 @@ class InputField extends StatelessWidget {
       ),
       keyboardType: keyboardType,
       obscureText: isPassword,
-      validator: (value) {},
-      onSaved: (value) {},
+      validator: validator,
+      onSaved: onSaved,
     );
   }
 }
