@@ -19,8 +19,8 @@ class AuthMethods {
       UserCredential userCredential = await firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
 
-      String photoURL =
-          await StorageMethods().storeImage('profilePics', imageFile, false);
+      String photoURL = await StorageMethods()
+          .uploadImageToStorage('profilePics', imageFile, false);
 
       models.User user = models.User(
         username: username,
